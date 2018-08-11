@@ -3,6 +3,8 @@ package cli
 import (
 	"errors"
 	"fmt"
+
+	"github.com/otaviopace/groot/commands"
 )
 
 func Run(args []string) (err error) {
@@ -15,7 +17,7 @@ func Run(args []string) (err error) {
 
 		switch grootCommand {
 		case "init":
-			return initCommand(grootCommandArgs)
+			return commands.Init(grootCommandArgs)
 		default:
 			stringErr := fmt.Sprintf("%s command is not implemented", grootCommand)
 			return errors.New(stringErr)
@@ -23,9 +25,4 @@ func Run(args []string) (err error) {
 	}
 
 	return errors.New("you must specify a groot command to run!")
-}
-
-func initCommand(args []string) (err error) {
-	fmt.Println("yo init yo")
-	return nil
 }
