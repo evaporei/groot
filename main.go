@@ -18,18 +18,18 @@ func main() {
 
 func runCli() (err error) {
 	if len(os.Args) > 1 {
-		gitCommand := os.Args[1]
-		gitCommandArgs := os.Args[2:]
+		grootCommand := os.Args[1]
+		grootCommandArgs := os.Args[2:]
 
-		fmt.Println(gitCommand)
-		fmt.Println(gitCommandArgs)
+		fmt.Println(grootCommand)
+		fmt.Println(grootCommandArgs)
 
-		switch gitCommand {
+		switch grootCommand {
 		default:
-			stringErr := fmt.Sprintf("%s command is not implemented", gitCommand)
+			stringErr := fmt.Sprintf("%s command is not implemented", grootCommand)
 			return errors.New(stringErr)
 		}
 	}
 
-	return errors.New("you must specify a Git command to run!")
+	return errors.New("you must specify a groot command to run!")
 }
