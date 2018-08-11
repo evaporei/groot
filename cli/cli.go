@@ -7,8 +7,14 @@ import (
 	"github.com/otaviopace/groot/commands"
 )
 
+const minimumArgsLength = 1
+
+func areArgsFilled(args []string) bool {
+	return len(args) > minimumArgsLength
+}
+
 func Run(args []string) (err error) {
-	if len(args) > 1 {
+	if areArgsFilled(args) {
 		grootCommand := args[1]
 		grootCommandArgs := args[2:]
 
