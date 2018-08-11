@@ -24,7 +24,11 @@ func runCli() (err error) {
 		fmt.Println(gitCommand)
 		fmt.Println(gitCommandArgs)
 
-		return nil
+		switch gitCommand {
+		default:
+			stringErr := fmt.Sprintf("%s command is not implemented", gitCommand)
+			return errors.New(stringErr)
+		}
 	}
 
 	return errors.New("you must specify a Git command to run!")
