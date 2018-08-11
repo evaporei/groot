@@ -13,10 +13,16 @@ func areArgsFilled(args []string) bool {
 	return len(args) > minimumArgsLength
 }
 
+func parseArgs(args []string) (string, []string) {
+	command := args[1]
+	commandArgs := args[2:]
+
+	return command, commandArgs
+}
+
 func Run(args []string) (err error) {
 	if areArgsFilled(args) {
-		grootCommand := args[1]
-		grootCommandArgs := args[2:]
+		grootCommand, grootCommandArgs := parseArgs(args)
 
 		fmt.Println(grootCommand)
 		fmt.Println(grootCommandArgs)
