@@ -1,8 +1,22 @@
 package commands
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"github.com/otaviopace/groot/files"
+)
 
 func Init(args []string) (err error) {
-	fmt.Println("yo init yo")
+	currentDir, err := os.Getwd()
+	if err != nil {
+		return err
+	}
+
+	if files.IsARepoAlready(currentDir) {
+		fmt.Println("already groot repository, nothing changed")
+		return nil
+	}
+
 	return nil
 }
