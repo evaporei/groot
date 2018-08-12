@@ -24,9 +24,6 @@ func Run(args []string) (err error) {
 	if areArgsFilled(args) {
 		grootCommand, grootCommandArgs := parseArgs(args)
 
-		fmt.Println(grootCommand)
-		fmt.Println(grootCommandArgs)
-
 		switch grootCommand {
 		case "init":
 			return commands.Init(grootCommandArgs)
