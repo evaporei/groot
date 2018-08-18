@@ -27,6 +27,8 @@ func Run(args []string) (err error) {
 		switch grootCommand {
 		case "init":
 			return commands.Init(grootCommandArgs)
+		case "update-index":
+			return commands.UpdateIndex(grootCommandArgs)
 		default:
 			stringErr := fmt.Sprintf("%s command is not implemented", grootCommand)
 			return errors.New(stringErr)
